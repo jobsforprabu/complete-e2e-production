@@ -16,6 +16,17 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/jobsforprabu/complete-prodcution-e2e-pipeline'
             }
         }
+        stage("Build Application") {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+        stage("Test Application") {
+            steps {
+                sh "mvn test"
+            }
+
+        }
     }
     
 }
